@@ -6,26 +6,26 @@ import androidx.annotation.NonNull;
 
 import com.bumptech.glide.Glide;
 
-class CarouselViewHolder extends ICarouselViewHolder{
+public class CarouselViewHolder extends ICarouselViewHolder{
 
       private CarouselData mCarouselData;
       private ImageView mImgView;
       private AdapterItemListener mListener;
 
 
-     CarouselViewHolder(@NonNull View itemView, final AdapterItemListener listener) {
+    public CarouselViewHolder(View itemView,  AdapterItemListener listener) {
         super(itemView,listener);
 
         this.mListener = listener;
 
         mImgView = itemView.findViewById(R.id.imgCarousel);
 
-        mImgView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener.onItemClick();
-            }
-        });
+//        mImgView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                listener.onItemClick();
+//            }
+//        });
     }
 
     @Override

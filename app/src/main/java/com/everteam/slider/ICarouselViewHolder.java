@@ -8,11 +8,11 @@ import androidx.recyclerview.widget.RecyclerView;
 public abstract class ICarouselViewHolder extends RecyclerView.ViewHolder {
 
 
-    public ICarouselViewHolder(@NonNull View itemView, final AdapterItemListener listener){
+
+   public   ICarouselViewHolder(View itemView, AdapterItemListener listener){
           super(itemView);
 
     }
-
 
     abstract void onBind(ICarouselData iCarouselData);
 }

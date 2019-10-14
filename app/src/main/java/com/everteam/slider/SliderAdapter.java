@@ -31,14 +31,12 @@ public class SliderAdapter extends RecyclerView.Adapter<ICarouselViewHolder> {
                 inflate(carouselItem.getmLayout(), parent ,false);
 
         try {
-            String className =  carouselItem.VHC.getClass().getName();
+            String className =  carouselItem.VHC.getName();
+            Class<?> c =   Class.forName(className);
+            Constructor<?> cons = c.getConstructor(View.class, AdapterItemListener.class);
+            Object v = cons.newInstance(view, mListener);
 
-               Class<?> c =   Class.forName(className);
-            Constructor<?> cons = c.getConstructor(view.getClass());
-
-
-
-            .getConstructor().newInstance( view ,mListener);
+            return (CarouselViewHolder)v;
 
         } catch (IllegalAccessException e) {
             e.printStackTrace();

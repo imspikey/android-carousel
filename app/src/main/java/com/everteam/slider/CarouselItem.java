@@ -1,39 +1,30 @@
 package com.everteam.slider;
 
-import android.net.Uri;
 
-import androidx.recyclerview.widget.RecyclerView;
+class CarouselItem extends ICarouselItem< CarouselViewHolder, CarouselData> {
 
 
-class CarouselItem {
+    CarouselItem(int layout, Class<CarouselViewHolder> carouselViewHolder, CarouselData carouselData) {
+        super(layout, carouselViewHolder, carouselData);
+    }
 
-        private Uri mImageUri;
-        private Boolean mIsLoadingIndicator = false;
+    @Override
+    public CarouselViewHolder getViewHolder() {
+        return carouselViewHolder;
+    }
 
-        CarouselViewHolder carouselViewHolder;
+    @Override
+    public void setViewHolder(CarouselViewHolder v) {
+        this.carouselViewHolder = v;
+    }
 
-        CarouselItem(Uri uri, Boolean isLoadingIndicator){
-            this(uri);
-            this.mIsLoadingIndicator = isLoadingIndicator;
-        }
+    @Override
+    public CarouselData getCarouselData() {
+        return carouselData;
+    }
 
-        CarouselItem(Uri uri ){
-            this.mImageUri = uri;
-        }
-
-        Uri getImageUri() {
-            return mImageUri;
-        }
-
-     void setImageUri(Uri mImageUri) {
-            this.mImageUri = mImageUri;
-     }
-
-     public Boolean getIsloadingIndicator() {
-         return mIsLoadingIndicator;
-     }
-
-     public void setIsloadingIndicator(Boolean mIsloadingIndicator) {
-         this.mIsLoadingIndicator = mIsloadingIndicator;
-     }
- }
+    @Override
+    public void setCarouselIData(CarouselData c) {
+        this.carouselData = c;
+    }
+}

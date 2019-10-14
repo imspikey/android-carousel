@@ -2,12 +2,10 @@ package com.everteam.slider;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.ContentResolver;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
@@ -30,9 +28,34 @@ public class CarouselTestActivity extends AppCompatActivity implements AdapterIt
 
     void initItems(){
         carouselItems = new ArrayList<>();
-        carouselItems.add(new CarouselItem(resourceToUri(R.drawable.ic_launcher_background)));
-        carouselItems.add(new CarouselItem(resourceToUri(R.drawable.ic_launcher_background)));
-        carouselItems.add(new CarouselItem(resourceToUri(R.drawable.ic_launcher_background)));
+
+        carouselItems.add(new CarouselItem(
+
+                R.layout.caroucel_viewholder,CarouselViewHolder.class,
+                new CarouselData(
+                        resourceToUri(R.drawable.ic_launcher_background),
+                        false)
+
+        ));
+
+        carouselItems.add(new CarouselItem(
+
+                R.layout.caroucel_viewholder,CarouselViewHolder.class,
+                new CarouselData(
+                        resourceToUri(R.drawable.ic_launcher_background),
+                        false)
+
+        ));
+
+
+        carouselItems.add(new CarouselItem(
+
+                R.layout.caroucel_viewholder,CarouselViewHolder.class,
+                new CarouselData(
+                        resourceToUri(R.drawable.ic_launcher_background),
+                        false)
+
+        ));
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +92,12 @@ public class CarouselTestActivity extends AppCompatActivity implements AdapterIt
                 carouseManager.setmIsScrollListenerEnabled(false);
                 final List<CarouselItem> carouselItemsToAdd = new ArrayList<>();
                 for(int i = 0; i < 5; i++){
-                    CarouselItem carouselItem = new CarouselItem(Uri.parse("https://picsum.photos/200/300?"+ UUID.randomUUID().toString()));
+                    CarouselItem carouselItem = new CarouselItem(
+                            R.layout.caroucel_viewholder,CarouselViewHolder.class,
+                            new CarouselData(
+                                    Uri.parse("https://picsum.photos/200/300?"+ UUID.randomUUID().toString()),
+                                    false)
+                    );
 
                     carouselItemsToAdd.add(carouselItem);
                 }

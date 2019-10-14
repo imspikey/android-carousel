@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.List;
 
 public class CarouseManager {
@@ -63,7 +62,9 @@ public class CarouseManager {
      }
 
      void showLoadingIndicator(){
-         this.mCarouselItems.add(new CarouselItem(null , true));
+         this.mCarouselItems.add(new CarouselItem(R.layout.caroucel_viewholder ,
+                 CarouselViewHolder.class,
+                 new CarouselData(null, true)));
          mSliderAdapter.notifyItemChanged(this.mCarouselItems.size() -1);
 
      }
